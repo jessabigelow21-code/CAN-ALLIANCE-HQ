@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101318">
+  <title>CAN Alliance HQ</title>
+  <link rel="stylesheet" href="style.css?v=111">
+</head>
+<body>
+<header class="topbar">
+  <div><h1>CAN Alliance HQ</h1><p>Alliance Operations Center</p></div>
+</header>
+
+<main id="app">
+  <section id="dashboard" class="page active"></section>
+  <section id="members" class="page"></section>
+  <section id="crazyjoe" class="page"></section>
+  <section id="foundry" class="page"></section>
+  <section id="canyon" class="page"></section>
+  <section id="bear" class="page"></section>
+  <section id="messages" class="page"></section>
+  <section id="intel" class="page"></section>
+  <section id="settings" class="page"></section>
+</main>
+
+<nav class="bottom-nav">
+  <button data-page="dashboard">🏠<span>Home</span></button>
+  <button data-page="members">👥<span>Members</span></button>
+  <button data-page="crazyjoe">⚔️<span>CJ</span></button>
+  <button data-page="foundry">🏭<span>Foundry</span></button>
+  <button data-page="canyon">🏰<span>Canyon</span></button>
+  <button data-page="bear">🐻<span>BT</span></button>
+  <button data-page="messages">💬<span>Messages</span></button>
+  <button data-page="intel">🧠<span>Intel</span></button>
+  <button data-page="settings">⚙️<span>Settings</span></button>
+</nav>
+
+<dialog id="memberDialog">
+  <form method="dialog" class="modal" id="memberForm">
+    <div class="modal-head"><h2 id="memberDialogTitle">Add Member</h2><button value="cancel" class="icon-btn">×</button></div>
+    <input type="hidden" id="memberId">
+    <label>Player Name<input id="memberName" required></label>
+    <div class="two-col">
+      <label>Gaia Rank<input id="memberGaia" type="number" min="1"></label>
+      <label>Strength<input id="memberStrength" placeholder="500M or 1.1B"></label>
+      <label>BT Group<select id="memberBT"><option>BT1</option><option>BT2</option></select></label>
+      <label>Status<select id="memberStatus"><option>Active</option><option>Vacation</option><option>Archived</option></select></label>
+      <label>Foundry<select id="memberFoundry"><option>Legion 1</option><option>Legion 2</option></select></label>
+      <label>Canyon<select id="memberCanyon"><option>Legion 1</option><option>Legion 2</option></select></label>
+    </div>
+    <label>Notes<textarea id="memberNotes"></textarea></label>
+    <div class="actions"><button value="cancel" class="btn secondary">Cancel</button><button type="button" id="saveMemberBtn" class="btn primary">Save Member</button></div>
+  </form>
+</dialog>
+
+<dialog id="eventDialog">
+  <form method="dialog" class="modal">
+    <div class="modal-head"><h2 id="eventDialogTitle">New Event</h2><button value="cancel" class="icon-btn">×</button></div>
+    <input type="hidden" id="eventType">
+    <div class="two-col">
+      <label>Date<input id="eventDate" type="date" required></label>
+      <label>UTC Time (24-hour)<input id="eventTime" type="time" step="60" required></label>
+      <label id="eventGroupWrap">Group<select id="eventGroup"></select></label>
+    </div>
+    <p class="hint">Enter the event time in UTC using 24-hour format, such as 15:00 or 20:00.</p>
+    <div class="actions"><button value="cancel" class="btn secondary">Cancel</button><button type="button" id="createEventBtn" class="btn primary">Create Event</button></div>
+  </form>
+</dialog>
+
+<script src="data.js?v=111"></script>
+<script src="app.js?v=111"></script>
+</body>
+</html>
